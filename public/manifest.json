@@ -1,0 +1,17 @@
+{
+  "$schema": "https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/web-manifest.json",
+  "name": "My School",
+  "short_name": "My school - 9B",
+  "start_url": "/9",
+  "scope": "/",
+  "theme_color": "#0369a1",
+  "background_color": "#0369a1",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "/icons/school-522x522.png",
+      "sizes": "522x522",
+      "type": "image/png"
+    }
+  ]
+}
