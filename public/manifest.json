@@ -4,8 +4,8 @@
   "short_name": "My school - 9B",
   "start_url": "/9",
   "scope": "/",
-  "theme_color": "#0369a1",
-  "background_color": "#0369a1",
+  "theme_color": "#8aadf4",
+  "background_color": "#8aadf4",
   "display": "standalone",
   "icons": [
     {
