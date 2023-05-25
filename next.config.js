@@ -1,19 +1,24 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true'
+})
 const runtimeCaching = require('next-pwa/cache')
 const withPWA = require('next-pwa')({
   dest: 'public',
-  runtimeCaching
+  runtimeCaching,
+  register: true,
+  skipWaiting: true,
 })
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const siteURL = process.env.NODE_ENV === 'development'
+  ? process.env.NODE_ENV === 'development' ? `http://localhost:3000` : `https://anhgerel.vercel.app`
+  : `https://${process.env.VERCEL_URL || `https://anhgerel.vercel.app`}`
 
-/** @type {import('next').NextConfig} */
-const config = {
+/**
+ * @type {import('next-offline').Config}
+ */
+module.exports = withPWA(withBundleAnalyzer({
   staticPageGenerationTimeout: 300,
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      config.resolve.fallback.fs = false
-    }
-    return config
-  },
   images: {
     domains: [
       'www.notion.so',
@@ -24,14 +29,8 @@ const config = {
       's3.us-west-2.amazonaws.com',
       'transitivebullsh.it'
     ],
-    loader: 'akamai',
-    path: '',
     formats: ['image/avif', 'image/webp'],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
-  },
-  poweredByHeader: false,
-  reactStrictMode: true
-}
-
-module.exports = withPWA(config)
+  }
+}))

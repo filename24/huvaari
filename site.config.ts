@@ -10,16 +10,16 @@ export default siteConfig({
 
   // basic site info (required)
   name: 'My School',
-  domain: 'anhgerel.ml',
+  domain: 'anhgerel.vercel.app',
   author: 'Ankhgerel',
 
   // open graph metadata (optional)
   description: 'My school coming soon...',
+  language: 'mn',
 
   // social usernames (optional)
   //twitter: 'transitive_bs',
   github: 'ankhgerel',
-  facebook: 'dev.filename',
   //linkedin: 'fisch2',
   // newsletter: '#', // optional newsletter URL
   // youtube: '#', // optional youtube channel name or `channel/UCGbXXXXXXXXXXXXXXXXXXXXXX`
@@ -55,10 +55,6 @@ export default siteConfig({
     {
       title: 'Home',
       pageId: '792d1f7371e442749e9ae402f2728393'
-    },
-{
-title: "Group",
-pageId: "4ebe2ef6ee56493cad26401e01844c88"
-}
+    }
   ]
 })

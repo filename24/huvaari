@@ -8,8 +8,8 @@
 }
 
 .dark-mode .notion-code {
-  background-color: rgba(17, 24, 39, 1);
-  border-color: rgba(55, 65, 81, 1);
+  background-color: var(--ctp-frappe-base);
+  border-color: var(--ctp-frappe-surface0);
 }
 .notion code {
   color: rgba(31, 41, 55, 1);
