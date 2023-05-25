@@ -1,38 +1,31 @@
 import * as React from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
 import dynamic from 'next/dynamic'
-import cs from 'classnames'
+import Image from 'next/image'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useSearchParam } from 'react-use'
-import BodyClassName from 'react-body-classname'
+
+import cs from 'classnames'
 import { PageBlock } from 'notion-types'
-
-import TweetEmbed from 'react-tweet-embed'
-
-// core notion renderer
+import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
+import BodyClassName from 'react-body-classname'
 import { NotionRenderer } from 'react-notion-x'
+import TweetEmbed from 'react-tweet-embed'
+import { useSearchParam } from 'react-use'
 
-// utils
-import { getBlockTitle, getPageProperty, formatDate } from 'notion-utils'
-import { mapPageUrl, getCanonicalPageUrl } from 'lib/map-page-url'
-import { mapImageUrl } from 'lib/map-image-url'
-import { searchNotion } from 'lib/search-notion'
-import { useDarkMode } from 'lib/use-dark-mode'
-import * as types from 'lib/types'
-import * as config from 'lib/config'
+import * as config from '@/lib/config'
+import * as types from '@/lib/types'
+import { mapImageUrl } from '@/lib/map-image-url'
+import { getCanonicalPageUrl, mapPageUrl } from '@/lib/map-page-url'
+import { searchNotion } from '@/lib/search-notion'
+import { useDarkMode } from '@/lib/use-dark-mode'
 
-// components
-import { Loading } from './Loading'
-import { Page404 } from './Page404'
-import { PageHead } from './PageHead'
-import { PageAside } from './PageAside'
 import { Footer } from './Footer'
+import { Loading } from './Loading'
 import { NotionPageHeader } from './NotionPageHeader'
-// import { GitHubShareButton } from './GitHubShareButton'
-
+import { Page404 } from './Page404'
+import { PageAside } from './PageAside'
+import { PageHead } from './PageHead'
 import styles from './styles.module.css'
-import { ContentWrapper } from './SideNav'
 
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
@@ -128,7 +121,7 @@ const propertyDateValue = (
     const publishDate = data?.[0]?.[1]?.[0]?.[1]?.start_date
 
     if (publishDate) {
-      return `Published ${formatDate(publishDate, {
+      return `${formatDate(publishDate, {
         month: 'long'
       })}`
     }
@@ -249,46 +242,43 @@ export const NotionPage: React.FC<types.PageProps> = ({
     config.description
 
   return (
-    <div className='flex h-full'>
-      <ContentWrapper>
-        <PageHead
-          pageId={pageId}
-          site={site}
-          title={title}
-          description={socialDescription}
-          image={socialImage}
-          url={canonicalPageUrl}
-        />
+    <>
+      <PageHead
+        pageId={pageId}
+        site={site}
+        title={title}
+        description={socialDescription}
+        image={socialImage}
+        url={canonicalPageUrl}
+      />
 
-        {isLiteMode && <BodyClassName className='notion-lite' />}
-        {isDarkMode && <BodyClassName className='dark-mode dark' />}
+      {isLiteMode && <BodyClassName className='notion-lite' />}
+      {isDarkMode && <BodyClassName className='dark-mode' />}
 
-        <NotionRenderer
-          bodyClassName={cs(
-            styles.notion,
-            pageId === site.rootNotionPageId && 'index-page'
-          )}
-          darkMode={isDarkMode}
-          components={components}
-          recordMap={recordMap}
-          rootPageId={site.rootNotionPageId}
-          rootDomain={site.domain}
-          fullPage={!isLiteMode}
-          previewImages={!!recordMap.preview_images}
-          showCollectionViewDropdown={false}
-          showTableOfContents={showTableOfContents}
-          minTableOfContentsItems={minTableOfContentsItems}
-          defaultPageIcon={config.defaultPageIcon}
-          defaultPageCover={config.defaultPageCover}
-          defaultPageCoverPosition={config.defaultPageCoverPosition}
-          mapPageUrl={siteMapPageUrl}
-          mapImageUrl={mapImageUrl}
-          searchNotion={config.isSearchEnabled ? searchNotion : null}
-          pageAside={pageAside}
-          footer={footer}
-        />
-        {/* <GitHubShareButton /> */}
-      </ContentWrapper>
-    </div>
+      <NotionRenderer
+        bodyClassName={cs(
+          styles.notion,
+          pageId === site.rootNotionPageId && 'index-page'
+        )}
+        darkMode={isDarkMode}
+        components={components}
+        recordMap={recordMap}
+        rootPageId={site.rootNotionPageId}
+        rootDomain={site.domain}
+        fullPage={!isLiteMode}
+        previewImages={!!recordMap.preview_images}
+        showCollectionViewDropdown={false}
+        showTableOfContents={showTableOfContents}
+        minTableOfContentsItems={minTableOfContentsItems}
+        defaultPageIcon={config.defaultPageIcon}
+        defaultPageCover={config.defaultPageCover}
+        defaultPageCoverPosition={config.defaultPageCoverPosition}
+        mapPageUrl={siteMapPageUrl}
+        mapImageUrl={mapImageUrl}
+        searchNotion={config.isSearchEnabled ? searchNotion : null}
+        pageAside={pageAside}
+        footer={footer}
+      />
+    </>
   )
 }

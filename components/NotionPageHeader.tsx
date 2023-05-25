@@ -1,56 +1,50 @@
 import * as React from 'react'
-import cs from 'classnames'
-import { Breadcrumbs, Search, useNotionContext } from 'react-notion-x'
-import * as types from 'notion-types'
 
-import { navigationLinks, isSearchEnabled } from 'lib/config'
+import * as types from 'notion-types'
+import { IoMoonSharp } from '@react-icons/all-files/io5/IoMoonSharp'
+import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
+import cs from 'classnames'
+import { Breadcrumbs, Header, Search, useNotionContext } from 'react-notion-x'
+
+import { isSearchEnabled, navigationLinks, navigationStyle } from '@/lib/config'
+import { useDarkMode } from '@/lib/use-dark-mode'
 
 import styles from './styles.module.css'
-import dynamic from 'next/dynamic'
 
-const OpenNavButton = dynamic(
-  async () => (await import('./SideNav')).OpenNavButton,
-  {
-    ssr: false
-  }
-)
+const ToggleThemeButton = () => {
+  const [hasMounted, setHasMounted] = React.useState(false)
+  const { isDarkMode, toggleDarkMode } = useDarkMode()
 
-// const DarkModeToggle = dynamic(
-//   async () => (await import('react-dark-mode-toggle-2')).DarkModeToggle,
-//   {
-//     ssr: false
-//   }
-// )
-// const ToggleThemeButton = () => {
-//   const [hasMounted, setHasMounted] = React.useState(false)
-//   const { isDarkMode, toggleDarkMode } = useDarkMode()
+  React.useEffect(() => {
+    setHasMounted(true)
+  }, [])
 
-//   React.useEffect(() => {
-//     setHasMounted(true)
-//   }, [])
+  const onToggleTheme = React.useCallback(() => {
+    toggleDarkMode()
+  }, [toggleDarkMode])
 
-//   return (
-//     <DarkModeToggle
-//       onChange={toggleDarkMode}
-//       isDarkMode={hasMounted && isDarkMode}
-//       speed={1.3}
-//     />
-//   )
-// }
+  return (
+    <div
+      className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
+      onClick={onToggleTheme}
+    >
+      {hasMounted && isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
+    </div>
+  )
+}
 
 export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
 }> = ({ block }) => {
   const { components, mapPageUrl } = useNotionContext()
 
-  // if (navigationStyle === 'default') {
-  //   return <Header block={block} />
-  // }
+  if (navigationStyle === 'default') {
+    return <Header block={block} />
+  }
 
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
-        <OpenNavButton />
         <Breadcrumbs block={block} rootOnly={true} />
 
         <div className='notion-nav-header-rhs breadcrumbs'>
@@ -83,6 +77,8 @@ export const NotionPageHeader: React.FC<{
               }
             })
             .filter(Boolean)}
+
+          <ToggleThemeButton />
 
           {isSearchEnabled && <Search block={block} title={null} />}
         </div>
