@@ -1,55 +1,55 @@
-import * as React from 'react'
-import Document, { Head, Html, Main, NextScript } from 'next/document'
+import * as React from "react";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
-import { IconContext } from '@react-icons/all-files'
+import { IconContext } from "@react-icons/all-files";
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-        <Html lang='mn'>
+      <IconContext.Provider value={{ style: { verticalAlign: "middle" } }}>
+        <Html lang="mn">
           <Head>
-            <meta httpEquiv='X-UA-Compatible' content='IE=edge' />
-            <link rel='shortcut icon' href='/favicon.ico' />
+            <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+            <link rel="shortcut icon" href="/favicon.ico" />
             <link
-              rel='icon'
-              type='image/png'
-              sizes='32x32'
-              href='favicon.png'
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="favicon.png"
             />
 
-            <meta name='description' content='My school v0.1-dev' />
-            <meta name='og:title' content='My school' />
-            <meta name='og:url' content='https://anhgerel.ml' />
-            <meta name='og:description' content='My school v0.1-dev' />
-            <meta name='og:image' content='/favicon.ico' />
+            <meta name="description" content="My school v0.1-dev" />
+            <meta name="og:title" content="My school" />
+            <meta name="og:url" content="https://anhgerel.ml" />
+            <meta name="og:description" content="My school v0.1-dev" />
+            <meta name="og:image" content="/favicon.ico" />
 
             <link
-              rel='apple-touch-icon'
-              sizes='180x180'
-              href='/icons/apple-touch-icon.png'
+              rel="apple-touch-icon"
+              sizes="180x180"
+              href="/icons/apple-touch-icon.png"
             />
             <link
-              rel='icon'
-              type='image/png'
-              sizes='32x32'
-              href='/icons/favicon-32x32.png'
+              rel="icon"
+              type="image/png"
+              sizes="32x32"
+              href="/icons/favicon-32x32.png"
             />
             <link
-              rel='icon'
-              type='image/png'
-              sizes='16x16'
-              href='/icons/favicon-16x16.png'
+              rel="icon"
+              type="image/png"
+              sizes="16x16"
+              href="/icons/favicon-16x16.png"
             />
-            <link rel='manifest' href='/manifest.json' />
+            <link rel="manifest" href="/manifest.json" />
             <link
-              rel='mask-icon'
-              href='/icons/safari-pinned-tab.svg'
-              color='#829fff'
+              rel="mask-icon"
+              href="/icons/safari-pinned-tab.svg"
+              color="#8aadf4"
             />
 
-            <meta name='msapplication-TileColor' content='#829fff' />
-            <meta name='theme-color' content='#829fff' />
+            <meta name="msapplication-TileColor" content="#8aadf4" />
+            <meta name="theme-color" content="#8aadf4" />
 
             <script
               async
@@ -68,7 +68,7 @@ export default class MyDocument extends Document {
 								window.location = 'https://go.microsoft.com/fwlink/?linkid=2135547';
 							}, 1);
 						}
-						`
+						`,
               }}
             />
             <noscript>This website requires JavaScript to be enabled.</noscript>
@@ -112,7 +112,7 @@ export default class MyDocument extends Document {
     localStorage.setItem(storageKey, JSON.stringify(isDarkMode))
   }
 })();
-`
+`,
               }}
             />
             <Main />
@@ -121,6 +121,6 @@ export default class MyDocument extends Document {
           </body>
         </Html>
       </IconContext.Provider>
-    )
+    );
   }
 }
