@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 import cs from 'classnames'
+// import { motion } from 'framer-motion'
 import { PageBlock } from 'notion-types'
 import { formatDate, getBlockTitle, getPageProperty } from 'notion-utils'
 import BodyClassName from 'react-body-classname'
@@ -243,6 +244,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   return (
     <>
+      <div className='flex text-text bg-blue justify-between items-center w[100%] p-3 border'></div>
       <PageHead
         pageId={pageId}
         site={site}

@@ -1543,6 +1543,39 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@catppuccin/palette@npm:0.1.5":
+  version: 0.1.5
+  resolution: "@catppuccin/palette@npm:0.1.5"
+  checksum: b6be48610e05f57019649baa7f9a69cdba6719e1867f51aebbe534ee28524a5f6141a888b82a6753a3afcb2a3ec3cbc79d66765908df04d8fa8aa4d60ababbcb
+  languageName: node
+  linkType: hard
+
+"@catppuccin/tailwindcss@npm:^0.1.1":
+  version: 0.1.1
+  resolution: "@catppuccin/tailwindcss@npm:0.1.1"
+  dependencies:
+    "@catppuccin/palette": 0.1.5
+    tailwindcss: ^3.0.24
+  checksum: 9f0b6cb8a70830d75548b778f538b4a804d1ff3dcd14aab9166308e87ff8037283fa52dd886fa9f11763b39a7e5de7723f8a10e2b67da2c275750ad303948e6c
+  languageName: node
+  linkType: hard
+
+"@emotion/is-prop-valid@npm:^0.8.2":
+  version: 0.8.8
+  resolution: "@emotion/is-prop-valid@npm:0.8.8"
+  dependencies:
+    "@emotion/memoize": 0.7.4
+  checksum: bb7ec6d48c572c540e24e47cc94fc2f8dec2d6a342ae97bc9c8b6388d9b8d283862672172a1bb62d335c02662afe6291e10c71e9b8642664a8b43416cdceffac
+  languageName: node
+  linkType: hard
+
+"@emotion/memoize@npm:0.7.4":
+  version: 0.7.4
+  resolution: "@emotion/memoize@npm:0.7.4"
+  checksum: 4e3920d4ec95995657a37beb43d3f4b7d89fed6caa2b173a4c04d10482d089d5c3ea50bbc96618d918b020f26ed6e9c4026bbd45433566576c1f7b056c3271dc
+  languageName: node
+  linkType: hard
+
 "@eslint/eslintrc@npm:^1.3.3":
   version: 1.3.3
   resolution: "@eslint/eslintrc@npm:1.3.3"
@@ -4181,6 +4214,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"framer-motion@npm:^10.12.16":
+  version: 10.12.16
+  resolution: "framer-motion@npm:10.12.16"
+  dependencies:
+    "@emotion/is-prop-valid": ^0.8.2
+    tslib: ^2.4.0
+  peerDependencies:
+    react: ^18.0.0
+    react-dom: ^18.0.0
+  dependenciesMeta:
+    "@emotion/is-prop-valid":
+      optional: true
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 0ba346fd6e64688ea5e64f9e353af6202b42d59e309ac32daca7fc07dc1dad9136dd2c18017a85ac76d01becb7f4683fc92dedbfce3e44831ea0c47bdc73e812
+  languageName: node
+  linkType: hard
+
 "fs-constants@npm:^1.0.0":
   version: 1.0.0
   resolution: "fs-constants@npm:1.0.0"
@@ -6079,6 +6133,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "nextjs-notion-starter-kit@workspace:."
   dependencies:
+    "@catppuccin/tailwindcss": ^0.1.1
     "@fisch0920/use-dark-mode": ^2.4.0
     "@keyvhq/core": ^1.6.9
     "@keyvhq/redis": ^1.6.10
@@ -6101,6 +6156,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     expiry-map: ^2.0.0
     fathom-client: ^3.4.1
+    framer-motion: ^10.12.16
     got: ^12.0.3
     isomorphic-unfetch: ^3.1.0
     lqip-modern: ^1.2.0
@@ -8369,7 +8425,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.3.2":
+"tailwindcss@npm:^3.0.24, tailwindcss@npm:^3.3.2":
   version: 3.3.2
   resolution: "tailwindcss@npm:3.3.2"
   dependencies:

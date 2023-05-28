@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
@@ -8,5 +9,10 @@ module.exports = {
   theme: {
     extend: {}
   },
-  plugins: []
+  plugins: [
+    require('@catppuccin/tailwindcss')({
+      // which flavour of colours to use by default, in the `:root`
+      defaultFlavour: 'macchiato'
+    }),
+  ],
 }
