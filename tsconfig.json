@@ -1,12 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "experimentalDecorators": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -14,15 +13,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "baseUrl": ".",
-    "typeRoots": ["./node_modules/@types"],
     "incremental": true,
+    "baseUrl": "src",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/lib/*": ["lib/*"],
-      "@/styles/*": ["styles/*"]
+      "@types": ["types/index"],
+      "@*": ["*"]
     }
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "site.config.ts"]
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }
