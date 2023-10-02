@@ -41,9 +41,6 @@ export default siteConfig({
   // example:
   //
   pageUrlOverrides: {
-    '/9': 'e4f0ebefda224c0ea6bf92eaa7ba28a9',
-    '/8': '6c898e99e9b0459a9c82eb25f488e7e0',
-    '/group': '4ebe2ef6ee56493cad26401e01844c88',
     '/10': "2b48c5f3115e49bd81fff38b4b3b8668"
   },
 
