@@ -1,8 +1,8 @@
 {
   "$schema": "https://github.com/SchemaStore/schemastore/raw/master/src/schemas/json/web-manifest.json",
   "name": "My School",
-  "short_name": "My school - 9B",
-  "start_url": "/9",
+  "short_name": "My school - 10A",
+  "start_url": "/10",
   "scope": "/",
   "theme_color": "#8aadf4",
   "background_color": "#8aadf4",

@@ -2,8 +2,7 @@ import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
   // the site's root Notion page (required)
-  rootNotionPageId: '792d1f7371e442749e9ae402f2728393',
-
+  rootNotionPageId: '93d5b96fe9404f9594a989fc70682188',
   // if you want to restrict pages to a single notion workspace (optional)
   // (this should be a Notion ID; see the docs for how to extract this)
   rootNotionSpaceId: null,
@@ -44,7 +43,8 @@ export default siteConfig({
   pageUrlOverrides: {
     '/9': 'e4f0ebefda224c0ea6bf92eaa7ba28a9',
     '/8': '6c898e99e9b0459a9c82eb25f488e7e0',
-    '/group': '4ebe2ef6ee56493cad26401e01844c88'
+    '/group': '4ebe2ef6ee56493cad26401e01844c88',
+    '/10': "2b48c5f3115e49bd81fff38b4b3b8668"
   },
 
   // whether to use the default notion navigation style or a custom one with links to
@@ -54,7 +54,7 @@ export default siteConfig({
   navigationLinks: [
     {
       title: 'Home',
-      pageId: '792d1f7371e442749e9ae402f2728393'
+      pageId: '2b48c5f3115e49bd81fff38b4b3b8668'
     }
   ]
 })
